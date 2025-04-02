@@ -1,0 +1,13 @@
+name: shinyapp2
+title: shinyapp2
+username: jgamboa
+account: jgamboa
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 10515313
+bundleId: 7923990
+url: https://jgamboa.shinyapps.io/shinyapp2/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: practice.qmd

@@ -1,0 +1,133 @@
+---
+title: "practice_shiny"
+format: html
+editor: visual
+---
+
+```{r}
+
+initial = 80000
+growth = 0.02
+contribution_percent = 0.15
+periods = 12
+years = 2
+rate_of_return = 0.08
+target = 50000
+
+#Calculating Periodic Contribution: 
+# initial * contribution_percent = amount 
+# amount / periods = periodic contribution 
+# next amount: bal( 1 + rate_of_return / periods) + period contribution
+
+
+#Year One
+
+contribution_total = initial * contribution_percent
+periodic_contribution = contribution_total / periods
+balance = periodic_contribution
+balances = c(periodic_contribution)
+
+for (period in 1:(periods-1)) {
+  new_balance = balance * (1 + rate_of_return / periods) + periodic_contribution
+  balances = append(balances, new_balance)
+  balance = new_balance
+}
+
+```
+
+```{r}
+#Algorithm
+initial = 80000
+growth = 0.02
+contribution_percent = 0.15
+periods = 12
+years = 5
+rate_of_return = 0.08
+target = 50000
+
+
+contribution_total = initial * contribution_percent
+periodic_contribution = contribution_total / periods
+balance = 0
+balances = c()
+salaries = 1:5
+contributions = 1:5
+
+count = 1 
+for (year in 1:years){
+  salaries[year] = initial
+  contribution_total = initial * contribution_percent
+  contributions[year] = contribution_total
+  periodic_contribution = contribution_total / periods
+  
+  for (period in 1:periods) {
+    new_balance = balance * (1 + rate_of_return / periods) + periodic_contribution
+    balances = append(balances, new_balance)
+    balance = new_balance 
+    count = count + 1
+  
+  }
+  
+  increase = initial * growth
+  initial = initial + increase
+  
+}
+
+
+```
+
+```{r}
+#Getting SALARY vector for table
+salaries
+
+```
+
+```{r}
+#Getting CONTRIBUTION vector for table
+contributions
+
+```
+
+```{r}
+
+#Getting BALANCE vector for table 
+bal = balances[seq(0, length(balances), by = 12)]
+bal
+
+```
+
+```{r}
+#Getting OWN vector for table 
+own_vec = cumsum(contributions)
+own_vec
+
+```
+
+```{r}
+#Getting GROWTH vector for table
+growth_vec = bal - own
+growth_vec
+
+```
+
+```{r}
+#Getting OWN_PCT vector for table
+own_pct = (own_vec / bal) * 100
+own_pct
+
+```
+
+```{r}
+#Getting GROWTH_PCT vector for table 
+growth_pct = (growth_vec / bal) * 100
+growth_pct
+
+```
+
+```{r}
+#Getting HIT_TARGET vector for table
+target_vec = case_when(bal >= target ~ 'yes', bal < target ~ 'no')
+target_vec
+
+
+```
