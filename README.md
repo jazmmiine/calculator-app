@@ -7,6 +7,7 @@ making periodic contributions from each paycheck.
 
 ![](screenshot.png)
 
+## Inputs
 
 1) __initial salary__: default value 80000.
 
@@ -35,6 +36,42 @@ is the return of investments); default value 0.08 (8%)
 8) __show target__: by default, no mark for the target amount will be displayed
 in the plots, but the user should be allowed to display a mark to visualize this 
 amount.
+
+## Outputs
+
+Output Plot-1
+
+The first output has to do with the plot of a timeline to visualize the 
+evolution of the retirement balance.
+
+Output Plot-2
+
+The second output has to do with the plot to visualize the composition of 
+"Own contributions" versus "Investments Growth".
+
+Output Data Table
+
+The third output involves a data table containing at least six columns (you can 
+add more columns if you consider them useful/pertinent for your app):
+
+1) __year__: year (starting with values at the end of year 1);
+
+2) __salary__: annual salary;
+
+3) __contribution__: contribution to retirement plan during each year;
+
+4) __balance__: the total balance of the retirement account at the end
+of each year;
+
+5) __own__: cumulative sum of annual contributions;
+
+6) __growth__: growth from the investments.
+
+7) __own_pct__: own in percentage (out of the balance);
+
+8) __growth_pct__: growth in percentage (out of the balance).
+
+9) __hit_target__: whether the balance has hit the target amount (yes/no).
 
 
 ## Running the app
